@@ -157,7 +157,7 @@ const LayoutBase = props => {
                   <NavPostList filteredNavPages={filteredNavPages} {...props} />
                 </div>
                 {/* 页脚 */}
-                <Footer {...props} />
+                {/* <Footer {...props} /> */}
               </div>
             </div>
           )}
@@ -180,9 +180,7 @@ const LayoutBase = props => {
             </div>
 
             {/* 底部 */}
-            <div className='md:hidden'>
-              <Footer {...props} />
-            </div>
+            <div className='md:hidden'>{/* <Footer {...props} /> */}</div>
           </div>
 
           {/*  右侧 */}
@@ -255,7 +253,9 @@ const LayoutIndex = props => {
         // 重定向到指定文章
         router.push(index).then(() => {
           setTimeout(() => {
-            const article = document.querySelector('#article-wrapper #notion-article')
+            const article = document.querySelector(
+              '#article-wrapper #notion-article'
+            )
             if (!article) {
               console.log(
                 '请检查您的Notion数据库中是否包含此slug页面： ',
@@ -309,7 +309,9 @@ const LayoutSlug = props => {
       setTimeout(
         () => {
           if (isBrowser) {
-            const article = document.querySelector('#article-wrapper #notion-article')
+            const article = document.querySelector(
+              '#article-wrapper #notion-article'
+            )
             if (!article) {
               router.push('/404').then(() => {
                 console.warn('找不到页面', router.asPath)
